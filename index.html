@@ -632,30 +632,32 @@
         bootloader + app.
         <br><strong>SD card download</strong> — no USB, or a USB-locked unit. Already running Lector only.</div>
 
-      <div class="note"><strong>What lector 0.42.0 does</strong>
+      <div class="note"><strong>What lector 0.43.1 does</strong>
+
+        <p><strong>Fixed</strong></p>
+        <ul>
+          <li><strong>Check for Updates works again.</strong> Readers on 0.41.0 to 0.43.0 showed "Server check failed" after GitHub changed certificates. Install this build once from the SD card or here; Wi-Fi updates work after that.</li>
+          <li>A book that cannot be laid out is no longer reopened on every wake.</li>
+          <li>Dictionaries in dictzip format read reliably, and web uploads from a Mac no longer create a second copy.</li>
+          <li>A reset mid-write never leaves a half-written font, cover or cache.</li>
+        </ul>
 
         <p><strong>Added</strong></p>
         <ul>
-          <li><strong>Search inside a book</strong> from the reader menu.</li>
-          <li><strong>Time left</strong> for the chapter and the book in the status bar, and chapter ticks on the progress bar.</li>
-          <li><strong>Forward</strong> after following a link and going back.</li>
-          <li><strong>Text settings per book:</strong> Kerning, Ligatures, Link Underline, Book Margins, Break Before Headings and Word Expansion.</li>
-          <li><strong>Text Contrast</strong> for darker greys, and a BOLDER step for Paperback Look.</li>
-          <li><strong>Night Refresh Frequency</strong> and <strong>Refresh at Chapter Start</strong>.</li>
-          <li><strong>TXT files in Windows-1252</strong> show accented letters correctly.</li>
+          <li><strong>Clock Time Zone:</strong> pick a city and the clock follows summer time by itself.</li>
+          <li><strong>Libron</strong> in the downloadable fonts.</li>
+          <li><strong>Reading themes</strong> save the status bar too.</li>
+          <li>Following a link, then sleeping, reopens on the page you were viewing.</li>
         </ul>
 
         <p><strong>Changed</strong></p>
         <ul>
-          <li><strong>Better battery on X4 Pro:</strong> fewer idle wake-ups, and waking from sleep is faster.</li>
+          <li>Wider side margins on lists, Settings, the status bar and the header.</li>
+          <li>Keyboard tips wrap instead of being cut off.</li>
+          <li><strong>X4 Pro:</strong> folders list up to 8000 names, and link taps resolve faster.</li>
         </ul>
 
-        <p><strong>Fixed</strong></p>
-        <ul>
-          <li><strong>Embedded Layout Style off</strong> no longer applies the book's margins.</li>
-        </ul>
-
-        <p class="note">Reports version <strong>lector 0.42.0</strong> on device. Earlier releases are on the
+        <p class="note">Reports version <strong>lector 0.43.1</strong> on device. Earlier releases are on the
           <a href="https://github.com/diogo7dias/lector/releases" target="_blank" rel="noopener">releases page</a>.</p>
       </div>
 

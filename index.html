@@ -4,6 +4,8 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Lector Xteink Firmware</title>
+<link rel="icon" href="icon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="apple-touch-icon.png" />
 <script>
   (()=>{
     let saved=null;
@@ -72,6 +74,18 @@
   .masthead h1{font-family:var(--serif);font-weight:600;font-size:40px;line-height:1;
     letter-spacing:-.02em;color:var(--ink);margin:0;}
   .masthead p{margin:8px 0 0;color:var(--sub);font-size:14.5px;max-width:64ch;}
+  /* The lector crow: ink on the page colour, so it follows the theme. */
+  .crow{width:72px;height:72px;flex:none;align-self:flex-start;overflow:visible;transform-origin:30% 90%;
+    animation:crow-in .9s cubic-bezier(.2,1.4,.4,1) both;}
+  .crow .f{fill:var(--ink);}
+  .crow .c{fill:var(--paper);}
+  .crow .eye{transform-box:fill-box;transform-origin:center;animation:crow-blink 6s 1.2s infinite;}
+  .crow:hover{animation:crow-peck .45s ease-in-out;}
+  @keyframes crow-in{from{opacity:0;transform:translateY(14px) rotate(-8deg) scale(.85);}}
+  @keyframes crow-blink{0%,94%,100%{transform:scaleY(1);}96%{transform:scaleY(.1);}}
+  @keyframes crow-peck{30%{transform:rotate(9deg);}60%{transform:rotate(-3deg);}}
+  @media (prefers-reduced-motion:reduce){.crow,.crow .eye{animation:none;}}
+  @media (max-width:520px){.crow{width:52px;height:52px;}}
 
   /* ---- tabs ---- */
   .tabs{display:inline-flex;margin-top:22px;border:3px solid var(--line);border-radius:6px;
@@ -385,6 +399,12 @@
     </div>
     <div class="rule-thin"></div>
     <div class="masthead">
+      <svg class="crow" viewBox="0 0 100 100" role="img" aria-label="Lector crow logo">
+        <path class="f" fill-rule="evenodd" d="M4 8H80V92H4ZM11 15V85H73V15Z"/>
+        <path class="f" d="M16 92V60Q16 30 38 22Q53 16 66 24L99 38L66 47Q59 52 57 62V92Z"/>
+        <path class="c" d="M66 36L90 38.2L66 40Z"/>
+        <circle class="c eye" cx="48" cy="35" r="4.2"/>
+      </svg>
       <div style="flex:1;min-width:0">
         <h1>Lector Xteink Firmware</h1>
         <p>Flash Lector firmware to your Xteink X3, X4, or X4 Pro, and turn any image into a sleep wallpaper —

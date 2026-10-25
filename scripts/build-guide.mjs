@@ -235,6 +235,8 @@ const page = (body, version) => `<!doctype html>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Lector — Firmware Guide</title>
+<link rel="icon" href="icon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="apple-touch-icon.png" />
 <script>
   (()=>{
     let saved=null;

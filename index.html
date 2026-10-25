@@ -652,24 +652,29 @@
         bootloader + app.
         <br><strong>SD card download</strong> — no USB, or a USB-locked unit. Already running Lector only.</div>
 
-      <div class="note"><strong>What lector 0.46.0 does</strong>
+      <div class="note"><strong>What lector 0.47.0 does</strong>
 
         <p><strong>Added</strong></p>
         <ul>
-          <li><strong>Auto Sync</strong> (KOReader Sync settings, off by default) keeps your place in step with BookOrbit: it pulls the position when a book opens and pushes it when the device sleeps. It joins saved Wi-Fi networks only.</li>
-          <li><strong>BookOrbit warning on Home:</strong> when a book on your BookOrbit "Reading" shelf is not on Lector, Home shows "N on BookOrbit, not here". Open it to download the book; it opens at your BookOrbit position.</li>
-          <li><strong>Reading Stats Position</strong> for the sleep band: Center (default), Left or Right.</li>
+          <li><strong>Reading toggles in the light panel:</strong> Align Left, Justify and Paragraph Spacing sit next to the light controls while you read. They apply per book in EPUB; alignment is global in TXT.</li>
+          <li><strong>TXT status bar</strong> now shows Pages This Session, Pages to Paragraph and Book time left.</li>
+          <li><strong>Crow logo</strong> on the boot screen and on the plain sleep face.</li>
         </ul>
 
         <p><strong>Changed</strong></p>
         <ul>
-          <li>The built-in Kumedia OPDS server now points at BookOrbit; saved copies of the old URL update themselves.</li>
-          <li>Firmware files install on CrossPoint and CrossInk's SD updaters again, and Lector no longer checks firmware signatures.</li>
-          <li>Power works like CrossPoint 1.6.5: the CPU slows down when idle instead of light-sleeping. This fixes the X3 Loading freeze and a USB lock-up on the X4.</li>
-          <li>Less static RAM, and the online update progress bar moves again.</li>
+          <li>Changing a reading setting from the light panel goes straight back to the page, without an Indexing banner. Toggling a setting back reuses the chapter's previous layout instead of rebuilding it.</li>
+          <li>The busy and message banner is white with a black rule, so it no longer ghosts onto the sleep wallpaper.</li>
+          <li>Firmware files are no longer signed: <code>firmware.bin</code> is a plain image.</li>
         </ul>
 
-        <p class="note">Reports version <strong>lector 0.46.0</strong> on device. Earlier releases are on the
+        <p><strong>Fixed</strong></p>
+        <ul>
+          <li>Pages to Paragraph no longer disappears from the status bar while a long chapter is still building.</li>
+          <li>Auto Sync uploads silently when BookOrbit holds no position for a book, instead of asking Upload or Download.</li>
+        </ul>
+
+        <p class="note">Reports version <strong>lector 0.47.0</strong> on device. Earlier releases are on the
           <a href="https://github.com/diogo7dias/lector/releases" target="_blank" rel="noopener">releases page</a>.</p>
       </div>
 

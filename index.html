@@ -652,32 +652,24 @@
         bootloader + app.
         <br><strong>SD card download</strong> — no USB, or a USB-locked unit. Already running Lector only.</div>
 
-      <div class="note"><strong>What lector 0.43.1 does</strong>
-
-        <p><strong>Fixed</strong></p>
-        <ul>
-          <li><strong>Check for Updates works again.</strong> Readers on 0.41.0 to 0.43.0 showed "Server check failed" after GitHub changed certificates. Install this build once from the SD card or here; Wi-Fi updates work after that.</li>
-          <li>A book that cannot be laid out is no longer reopened on every wake.</li>
-          <li>Dictionaries in dictzip format read reliably, and web uploads from a Mac no longer create a second copy.</li>
-          <li>A reset mid-write never leaves a half-written font, cover or cache.</li>
-        </ul>
+      <div class="note"><strong>What lector 0.46.0 does</strong>
 
         <p><strong>Added</strong></p>
         <ul>
-          <li><strong>Clock Time Zone:</strong> pick a city and the clock follows summer time by itself.</li>
-          <li><strong>Libron</strong> in the downloadable fonts.</li>
-          <li><strong>Reading themes</strong> save the status bar too.</li>
-          <li>Following a link, then sleeping, reopens on the page you were viewing.</li>
+          <li><strong>Auto Sync</strong> (KOReader Sync settings, off by default) keeps your place in step with BookOrbit: it pulls the position when a book opens and pushes it when the device sleeps. It joins saved Wi-Fi networks only.</li>
+          <li><strong>BookOrbit warning on Home:</strong> when a book on your BookOrbit "Reading" shelf is not on Lector, Home shows "N on BookOrbit, not here". Open it to download the book; it opens at your BookOrbit position.</li>
+          <li><strong>Reading Stats Position</strong> for the sleep band: Center (default), Left or Right.</li>
         </ul>
 
         <p><strong>Changed</strong></p>
         <ul>
-          <li>Wider side margins on lists, Settings, the status bar and the header.</li>
-          <li>Keyboard tips wrap instead of being cut off.</li>
-          <li><strong>X4 Pro:</strong> folders list up to 8000 names, and link taps resolve faster.</li>
+          <li>The built-in Kumedia OPDS server now points at BookOrbit; saved copies of the old URL update themselves.</li>
+          <li>Firmware files install on CrossPoint and CrossInk's SD updaters again, and Lector no longer checks firmware signatures.</li>
+          <li>Power works like CrossPoint 1.6.5: the CPU slows down when idle instead of light-sleeping. This fixes the X3 Loading freeze and a USB lock-up on the X4.</li>
+          <li>Less static RAM, and the online update progress bar moves again.</li>
         </ul>
 
-        <p class="note">Reports version <strong>lector 0.43.1</strong> on device. Earlier releases are on the
+        <p class="note">Reports version <strong>lector 0.46.0</strong> on device. Earlier releases are on the
           <a href="https://github.com/diogo7dias/lector/releases" target="_blank" rel="noopener">releases page</a>.</p>
       </div>
 

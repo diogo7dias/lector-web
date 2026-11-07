@@ -652,43 +652,27 @@
         bootloader + app.
         <br><strong>SD card download</strong> — no USB, or a USB-locked unit. Already running Lector only.</div>
 
-      <div class="note"><strong>What lector 0.48.0 does</strong>
+      <div class="note"><strong>What lector 0.49.0 does</strong>
 
         <p>Every book re-indexes once when you first open it, because the layout cache changed. Reading positions are kept.</p>
 
-        <p><strong>Added</strong></p>
-        <ul>
-          <li><strong>Publisher styling</strong>: drop caps, borders and shading around blocks, small caps and per-word type sizes follow the book's own style. Type sizes need a font on the SD card with more than one size. Tables plan their column widths, and orphan lines and trailing headings carry to the next page.</li>
-          <li><strong>Pinch to resize</strong>: on a touch screen, spread or pinch two fingers to change the text size by one step, per book. Needs a font with more than one size.</li>
-          <li><strong>Character Spacing</strong> in Text Settings, -5 to +5, next to Word Spacing.</li>
-          <li><strong>Go to Page</strong>: in EPUB 3 books with a page list, type a printed page number from the Navigate menu. The status bar page item adds the printed page.</li>
-          <li><strong>Number pad on Go to %</strong> on touch screens.</li>
-          <li><strong>Small images inside the text line</strong>: an image up to two lines tall wraps like a word. Larger images stay centred blocks.</li>
-          <li><strong>Rename</strong> in the file browser: hold Confirm on a file. Its place, bookmarks and highlights follow it.</li>
-          <li><strong>Quick Lock</strong>, a new button action in Settings &gt; Controls &gt; Buttons: the screen stays up and touch and buttons stop until the same gesture fires again. Any sleep ends it.</li>
-          <li><strong>Light Schedule</strong> in Settings &gt; Display, on boards with a frontlight and a clock: a wake inside the set hours lights the screen.</li>
-          <li><strong>Screen Calibration</strong> in Settings &gt; Display: move each edge of the page in from the bezel, 0 to 32 px. It is stored on the device, not the card.</li>
-          <li><strong>What's New</strong> appears once after an update, and stays in Settings &gt; System.</li>
-        </ul>
-
         <p><strong>Changed</strong></p>
         <ul>
-          <li>BMP wallpapers larger than the panel are shrunk before dithering, so thin lines survive and seams are gone.</li>
-          <li>A dictionary lookup shows every entry for the word, finds words wrapped in <code>「」</code> or <code>《》</code>, and reads dictionaries that tag each entry's fields.</li>
-          <li>Option pop-ups too long for the panel now split into pages, so every button action can be seen.</li>
-          <li>More free memory: the settings list, spine sizes and SD font tables no longer stay in RAM, and File Transfer uses less while it runs. File Transfer allows two WebSocket connections and closes an upload client that stays silent for two minutes. The upload can resume.</li>
+          <li>Pictures inside a book now use the same gray levels as covers, so a picture looks the same in both places. Each picture decodes once more on first view.</li>
+          <li>Smaller firmware: an unused built-in font is gone, about 54 KB on each board.</li>
         </ul>
 
         <p><strong>Fixed</strong></p>
         <ul>
-          <li>Selecting a word, Grab Quote and quote underlines follow words set in a different type size.</li>
-          <li>Words no longer glue together across a block start, and justified lines no longer run past the margin. Inherited bold and italic are kept, and lines in SD fonts end at the same x position.</li>
-          <li>A power loss while saving can no longer leave two files sharing the same data on the card.</li>
-          <li>Back leaves File Transfer during a slow upload, and removes the partial file.</li>
-          <li>USB Drive ends when the cable is pulled from a battery-powered X4 Pro.</li>
+          <li>Word Expansion and Character Spacing count letters the way they are drawn: small caps no longer treat ligature pairs as one letter, and right-to-left words are counted as shown.</li>
+          <li>An underline under the first word of an indented paragraph starts at the first letter when Word Expansion or Character Spacing is on.</li>
+          <li>Markdown (<code>.md</code>) books get a sleep cover and show their title without ".md".</li>
+          <li>Brightness set from the web settings page is kept in range, and a failed save reports an error instead of success.</li>
+          <li>An XTC cover and a book's layout cache are written whole or not at all, so a power loss cannot leave a half-written file that is trusted later.</li>
+          <li>Nearby position sync recovers progress left in a temporary file by an interrupted save.</li>
         </ul>
 
-        <p class="note">Reports version <strong>lector 0.48.0</strong> on device. Earlier releases are on the
+        <p class="note">Reports version <strong>lector 0.49.0</strong> on device. Earlier releases are on the
           <a href="https://github.com/diogo7dias/lector/releases" target="_blank" rel="noopener">releases page</a>.</p>
       </div>
 

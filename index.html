@@ -652,27 +652,28 @@
         bootloader + app.
         <br><strong>SD card download</strong> — no USB, or a USB-locked unit. Already running Lector only.</div>
 
-      <div class="note"><strong>What lector 0.49.0 does</strong>
+      <div class="note"><strong>What lector 0.50.0 does</strong>
 
         <p>Every book re-indexes once when you first open it, because the layout cache changed. Reading positions are kept.</p>
 
-        <p><strong>Changed</strong></p>
-        <ul>
-          <li>Pictures inside a book now use the same gray levels as covers, so a picture looks the same in both places. Each picture decodes once more on first view.</li>
-          <li>Smaller firmware: an unused built-in font is gone, about 54 KB on each board.</li>
-        </ul>
-
         <p><strong>Fixed</strong></p>
         <ul>
-          <li>Word Expansion and Character Spacing count letters the way they are drawn: small caps no longer treat ligature pairs as one letter, and right-to-left words are counted as shown.</li>
-          <li>An underline under the first word of an indented paragraph starts at the first letter when Word Expansion or Character Spacing is on.</li>
-          <li>Markdown (<code>.md</code>) books get a sleep cover and show their title without ".md".</li>
-          <li>Brightness set from the web settings page is kept in range, and a failed save reports an error instead of success.</li>
-          <li>An XTC cover and a book's layout cache are written whole or not at all, so a power loss cannot leave a half-written file that is trusted later.</li>
-          <li>Nearby position sync recovers progress left in a temporary file by an interrupted save.</li>
+          <li>A character missing from an SD TrueType font shows the font's empty box instead of vanishing from the line.</li>
+          <li>Random book picks and Nearby position sync no longer look inside the <code>System Volume Information</code> and <code>XTCache</code> folders. The file browser hides <code>XTCache</code> too.</li>
+          <li>The button remap screen finishes when you let go of the last button, so that release no longer acts on the Settings screen under the new mapping.</li>
+          <li>A hidden password ending in an accented letter shows that letter, not a broken symbol.</li>
+          <li>A damaged SD font file (for example an interrupted copy) draws the damaged letters blank instead of garbage.</li>
+          <li>Very long chapters (past about 2,000 pages or 500 links) no longer risk a restart from one large memory request while they are indexed.</li>
+          <li>Hebrew: the four-letter divine name is shown as ה' in right-to-left text.</li>
+          <li>A rare crash while the reader switched to low-power mode.</li>
         </ul>
 
-        <p class="note">Reports version <strong>lector 0.49.0</strong> on device. Earlier releases are on the
+        <p><strong>Changed</strong></p>
+        <ul>
+          <li>Less memory used: unused Arduino libraries and Bluetooth are left out of the firmware, a CJK fallback font loads once when a book's CSS asks for the same size again, and Chinese and Japanese words lay out with fewer allocations.</li>
+        </ul>
+
+        <p class="note">Reports version <strong>lector 0.50.0</strong> on device. Earlier releases are on the
           <a href="https://github.com/diogo7dias/lector/releases" target="_blank" rel="noopener">releases page</a>.</p>
       </div>
 

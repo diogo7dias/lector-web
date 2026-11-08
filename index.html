@@ -652,28 +652,16 @@
         bootloader + app.
         <br><strong>SD card download</strong> — no USB, or a USB-locked unit. Already running Lector only.</div>
 
-      <div class="note"><strong>What lector 0.50.0 does</strong>
+      <div class="note"><strong>What lector 0.51.0 does</strong>
 
-        <p>Every book re-indexes once when you first open it, because the layout cache changed. Reading positions are kept.</p>
-
-        <p><strong>Fixed</strong></p>
-        <ul>
-          <li>A character missing from an SD TrueType font shows the font's empty box instead of vanishing from the line.</li>
-          <li>Random book picks and Nearby position sync no longer look inside the <code>System Volume Information</code> and <code>XTCache</code> folders. The file browser hides <code>XTCache</code> too.</li>
-          <li>The button remap screen finishes when you let go of the last button, so that release no longer acts on the Settings screen under the new mapping.</li>
-          <li>A hidden password ending in an accented letter shows that letter, not a broken symbol.</li>
-          <li>A damaged SD font file (for example an interrupted copy) draws the damaged letters blank instead of garbage.</li>
-          <li>Very long chapters (past about 2,000 pages or 500 links) no longer risk a restart from one large memory request while they are indexed.</li>
-          <li>Hebrew: the four-letter divine name is shown as ה' in right-to-left text.</li>
-          <li>A rare crash while the reader switched to low-power mode.</li>
-        </ul>
+        <p>Your books and reading positions are untouched, and no book re-indexes.</p>
 
         <p><strong>Changed</strong></p>
         <ul>
-          <li>Less memory used: unused Arduino libraries and Bluetooth are left out of the firmware, a CJK fallback font loads once when a book's CSS asks for the same size again, and Chinese and Japanese words lay out with fewer allocations.</li>
+          <li>Four Settings rows that sat at the bottom of their lists with no heading now sit in their groups: Night Refresh Frequency and Refresh at Chapter Start with the other refresh rows, Fast Unlock under Sleep Screen, Touch Sleep under Power.</li>
         </ul>
 
-        <p class="note">Reports version <strong>lector 0.50.0</strong> on device. Earlier releases are on the
+        <p class="note">Reports version <strong>lector 0.51.0</strong> on device. Earlier releases are on the
           <a href="https://github.com/diogo7dias/lector/releases" target="_blank" rel="noopener">releases page</a>.</p>
       </div>
 

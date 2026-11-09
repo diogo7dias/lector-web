@@ -652,29 +652,14 @@
         bootloader + app.
         <br><strong>SD card download</strong> — no USB, or a USB-locked unit. Already running Lector only.</div>
 
-      <div class="note"><strong>What lector 0.53.0 does</strong>
-        <p>Every book re-indexes once when you first open it, because the layout cache changed. Reading positions are kept.</p>
+      <div class="note"><strong>What lector 0.54.0 does</strong>
+        <p>No book re-indexes. Nothing changes on the X3 and X4.</p>
 
-        <p><strong>Fixed</strong></p>
+        <p><strong>New</strong></p>
         <ul>
-          <li>Stored passwords can no longer be read over Wi-Fi through an alternate file name. Wi-Fi, OPDS and sync passwords and trusted certificates are never shown or served over the network, even with Show Hidden Files on.</li>
-          <li>Footnotes open on the page where the note starts, instead of one page early.</li>
-          <li>A note's return arrow now returns you properly, and Back no longer jumps to an old note after you move elsewhere in the book.</li>
-          <li>A failed read can no longer produce a wrong book identity for position sync.</li>
-          <li>A sync request is no longer sent twice when the server drops the first answer.</li>
-          <li>The battery percent on X4 no longer drifts between screen draws.</li>
-          <li>A chapter build parked behind the reading window no longer holds the processor at full speed.</li>
-          <li>Idle Nearby screens follow Time to Sleep.</li>
+          <li>X4 Pro: a Fast Page Turns trial. A new row on the main Settings page, off by default, opens a page with the switch, how to test it, what to look for and what to report. It uses a quicker page-turn waveform that has not been measured on this panel yet, so it may leave more ink behind. Turn it off if it looks wrong. It changes nothing on X4 Pro units with a UC8279 panel.</li>
         </ul>
-
-        <p><strong>Changed</strong></p>
-        <ul>
-          <li>Long dictionary definitions turn with the same taps and side swipes as a book page, on touch screens.</li>
-          <li>X4 Pro: opening chapters and images no longer rescans the book's file table.</li>
-          <li>X3 and X4: about 2.7 KB more free memory and 125 KB less flash, by compiling out network features the firmware never uses.</li>
-          <li>The status bar reads the chapter once per chapter instead of on every page.</li>
-        </ul>
-        <p class="note">Reports version <strong>lector 0.53.0</strong> on device. Earlier releases are on the
+        <p class="note">Reports version <strong>lector 0.54.0</strong> on device. Earlier releases are on the
           <a href="https://github.com/diogo7dias/lector/releases" target="_blank" rel="noopener">releases page</a>.</p>
       </div>
 

@@ -652,24 +652,24 @@
         bootloader + app.
         <br><strong>SD card download</strong> — no USB, or a USB-locked unit. Already running Lector only.</div>
 
-      <div class="note"><strong>What lector 0.55.0 does</strong>
+      <div class="note"><strong>What lector 0.56.0 does</strong>
         <p>Every book re-indexes once when you first open it, because the layout cache changed. Reading positions are kept.</p>
 
         <p><strong>New</strong></p>
         <ul>
-          <li>Fill Pages: a switch in Text Settings, off by default, kept per book. Lector normally moves a line to the next page so a paragraph is not split badly and a heading stays with its text, which leaves some pages a line or two short. With Fill Pages on, every page runs to its last line.</li>
-          <li>X4 Pro: Refresh Wallpaper, a switch in Display settings, off by default. One minute after you lock, the device wakes by itself, draws the same wallpaper once more and sleeps again, which clears the gray left by the screen before it. Only above 15% battery, once per lock.</li>
+          <li>X4 Pro: faster page turns. On units with the UC8279 screen a page turn takes about half a second instead of 0.7, on a short waveform Lector drives itself. The regular clean refresh still clears any build-up.</li>
+          <li>Quick page turns are kept. Presses made while the screen is still refreshing are counted (up to four either way) and shown together.</li>
+          <li>OPDS: a short Back goes up one level; hold it for a second to return Home.</li>
         </ul>
         <p><strong>Fixed</strong></p>
         <ul>
-          <li>Downloads from GitHub no longer stall. Updates and font downloads could hang for 30 seconds and fail.</li>
-          <li>Unusual spaces (no-break, thin, em and ideographic) draw as a normal space instead of a missing-character box.</li>
+          <li>Heading groups keep the book's margins and alignment, and the space after a chapter title no longer lands below the first paragraph.</li>
+          <li>Side keys bound to the other page direction page that way; Force refresh works on holds; Sleep on a hold lets auto-sleep use the full timeout.</li>
+          <li>The reading journal un-finishes a book you page back from the end.</li>
+          <li>Book images are written whole before use, TrueType letter spacing is more even, and dictionary lookups find Hebrew and Arabic words with vowel marks.</li>
+          <li>X4 Pro: a restart after Auto Sync can no longer crash on a too-small system stack.</li>
         </ul>
-        <p><strong>Changed</strong></p>
-        <ul>
-          <li>X3 and X4: secure connections to servers with RSA certificates use a leaner code path for the key check.</li>
-        </ul>
-        <p class="note">Reports version <strong>lector 0.55.0</strong> on device. Earlier releases are on the
+        <p class="note">Reports version <strong>lector 0.56.0</strong> on device. Earlier releases are on the
           <a href="https://github.com/diogo7dias/lector/releases" target="_blank" rel="noopener">releases page</a>.</p>
       </div>
 

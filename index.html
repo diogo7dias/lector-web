@@ -652,21 +652,27 @@
         bootloader + app.
         <br><strong>SD card download</strong> — no USB, or a USB-locked unit. Already running Lector only.</div>
 
-      <div class="note"><strong>What lector 0.57.0 does</strong>
-        <p>No re-index this time: books open on their existing layout cache.</p>
+      <div class="note"><strong>What lector 0.58.0 does</strong>
+        <p>Books re-index once: the layout cache format changed, and inline images decode again.</p>
 
-        <p><strong>New</strong></p>
+        <p><strong>Changed</strong></p>
         <ul>
-          <li>Sharper paragraph numbers. They are crisp pixel digits now instead of a shrunk copy of the reading font, and Number Size is Small, Medium or Large (8, 16 or 24 px tall). Your saved choice carries over.</li>
-          <li>Number Position, in Reader settings and the in-book Look tab: By the Text (the new default) puts each number just before the paragraph's first letter, Page Edge keeps the column at the left edge. Set per book and saved in reading themes.</li>
-          <li>The numbers sit centred on the capitals of the first line, so the larger sizes no longer hang below it.</li>
+          <li>X4 Pro page turns are back on the panel's own fast waveform, instead of the 12-frame one from 0.56.0.</li>
+          <li>Time to Sleep defaults to 5 minutes on a fresh device. A saved setting is kept.</li>
+          <li>With Show Timings on, the performance log records battery, millivolts and time at each wake and sleep.</li>
         </ul>
         <p><strong>Fixed</strong></p>
         <ul>
-          <li>A book left on its cover or front matter reopens there instead of jumping ahead to the start of the text.</li>
-          <li>The layout cache no longer stores leftover memory bytes after each footnote's number and link.</li>
+          <li>High-quality inline JPEGs decode as libjpeg does, without smeared edges on text and line art.</li>
+          <li>A book with images no longer shows empty boxes after you leave it and open it again, and images linked as ./name show up.</li>
+          <li>The update, font download and clear cache screens, the Nearby position screens, and Settings left from the Wi-Fi list no longer keep the device awake or Wi-Fi on.</li>
+          <li>The SD card is flushed before sleep and before USB Drive, so recent changes are kept.</li>
+          <li>The OPDS password goes only to its own server. WebDAV rename, copy and upload no longer lose a book, and downloads land whole or not at all.</li>
+          <li>X4 Pro keys wake the device from the idle poll, and the light sliders nudge to 0% and 100%.</li>
+          <li>Accent marks the font lacks no longer stamp a box over the letter, bottom-up BMPs draw fully, and XTC takes its bit depth from the pages.</li>
+          <li>Crash reports name the functions at each address, and memory bugs found by new fuzz tests are fixed.</li>
         </ul>
-        <p class="note">Reports version <strong>lector 0.57.0</strong> on device. Earlier releases are on the
+        <p class="note">Reports version <strong>lector 0.58.0</strong> on device. Earlier releases are on the
           <a href="https://github.com/diogo7dias/lector/releases" target="_blank" rel="noopener">releases page</a>.</p>
       </div>
 

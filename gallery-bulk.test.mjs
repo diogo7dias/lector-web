@@ -39,6 +39,9 @@ test("gallery loads only one small batch and supports mixed master sizes", () =>
   assert.match(html, /id="gloadMore"/);
   assert.match(html, /id="gprev"/);
   assert.match(html, /Download · \$\{masterDevice\} PXC/);
+  // Kept in the source, not offered: the PXC master link and PXC re-targets sit behind a flag.
+  assert.match(html, /const OFFER_PXC=false;/);
+  assert.match(html, /if\(OFFER_PXC\) card\.append\(main\);/);
   assert.match(html, /renderGalleryBatch/);
   assert.match(html, /async function renderGalleryBatch\(start\)[\s\S]*?grid\.replaceChildren\(\)/);
   assert.match(html, /previewPxc/);

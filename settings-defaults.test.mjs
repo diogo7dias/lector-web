@@ -6,7 +6,11 @@ const html = readFileSync(new URL("./index.html", import.meta.url), "utf8");
 
 test("converter starts with the requested X3 defaults", () => {
   assert.match(html, /data-w="528" data-h="792" class="on">X3/);
-  assert.match(html, /data-fmt="pxc" class="on">PXC/);
+  // PXC is hidden since lector 0.59.0 dropped the format: BMP is the default and the
+  // Format control stays in the page, out of sight.
+  assert.match(html, /<div class="ctl" hidden>\s*<label>Format<\/label>/);
+  assert.match(html, /data-fmt="bmp" class="on">BMP/);
+  assert.doesNotMatch(html, /data-fmt="pxc" class="on"/);
   assert.match(html, /option value="stretch" selected/);
   // Rendering starts on Auto: the per-image badge is now the place a picture that
   // Auto reads wrong gets corrected, so the global control no longer has to guess
@@ -16,7 +20,7 @@ test("converter starts with the requested X3 defaults", () => {
   assert.match(html, /id="segContrast">[\s\S]*?data-v="1" class="on">On/);
   assert.match(html, /id="segInvert">[\s\S]*?data-v="0" class="on">Off/);
   assert.match(html, /id="segDither">[\s\S]*?data-v="solid" class="on">Solid/);
-  assert.match(html, /const S = \{ w:528, h:792, fmt:"pxc", fit:"stretch", mode:"auto", contrast:1, invert:0, ditherStyle:"solid"/);
+  assert.match(html, /const S = \{ w:528, h:792, fmt:"bmp", fit:"stretch", mode:"auto", contrast:1, invert:0, ditherStyle:"solid"/);
 });
 
 // Classic against Solid is the comparison Diogo asked to have on the page, so the

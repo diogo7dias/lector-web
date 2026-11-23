@@ -435,11 +435,13 @@
             <button data-w="528" data-h="792" class="on">X3 · 528×792</button>
           </div>
         </div>
-        <div class="ctl">
+        <!-- Hidden, not removed: lector 0.59.0 dropped .pxc wallpapers, so BMP is the only
+             output on offer. Drop the hidden attribute to bring the choice back. -->
+        <div class="ctl" hidden>
           <label>Format</label>
           <div class="seg" id="segFmt">
-            <button data-fmt="pxc" class="on">PXC</button>
-            <button data-fmt="bmp">BMP</button>
+            <button data-fmt="pxc">PXC</button>
+            <button data-fmt="bmp" class="on">BMP</button>
           </div>
         </div>
         <div class="ctl">
@@ -499,7 +501,7 @@
       <div class="drop" id="drop">
         <div class="big">Drop images here <span>or click to choose</span></div>
         <div class="sub">PNG · JPG · WebP · GIF · BMP · PXC — pick as many as you like. Drop an existing
-          <code>.pxc</code> to re-target it to the other screen.</div>
+          <code>.pxc</code> to turn it into a BMP: Lector 0.59.0 and later read BMP wallpapers only.</div>
         <input type="file" id="file" accept="image/*,.pxc" multiple hidden />
       </div>
       <div class="bar" id="bar" hidden>
@@ -519,9 +521,9 @@
 
     <details>
       <summary>How it works &amp; the auto settings</summary>
-      <p><strong>PXC</strong> is the device's packed format: a 4-byte little-endian <code>width,height</code>
-        header then 2 bits/pixel (4 gray levels: black · dark · light · white), MSB-first.
-        <strong>BMP</strong> output is a standard 2-bit, 4-gray bitmap the reader also accepts.</p>
+      <p><span hidden><strong>PXC</strong> is the device's packed format: a 4-byte little-endian <code>width,height</code>
+        header then 2 bits/pixel (4 gray levels: black · dark · light · white), MSB-first.</span>
+        <strong>BMP</strong> output is a standard 2-bit, 4-gray bitmap (black · dark · light · white) the reader accepts.</p>
       <ul>
         <li><strong>Auto rendering</strong> — the tonal range is measured. Photographs get dithering;
           logos / line art / text get crisp thresholding. Click the <code>dither</code> /
@@ -544,9 +546,9 @@
         <li><strong>Fit</strong> — <em>Cover</em> fills and crops; <em>Fit</em> letterboxes;
           <em>Stretch</em> distorts to fill.</li>
         <li><strong>Invert</strong> — only if a wallpaper shows up looking like a photo negative on your panel.</li>
-        <li><strong>Re-target</strong> — drop a <code>.pxc</code> straight in; switch <em>Screen</em> to
+        <li hidden><strong>Re-target</strong> — drop a <code>.pxc</code> straight in; switch <em>Screen</em> to
           re-fit and re-encode for the other reader (the badge then reads e.g. <code>X3 → X4</code>).</li>
-        <li><strong>Names</strong> &mdash; a downloaded <code>.pxc</code> is named for the reader it was fitted
+        <li hidden><strong>Names</strong> &mdash; a downloaded <code>.pxc</code> is named for the reader it was fitted
           to, e.g. <code>sunset_X3.pxc</code>. Re-target it and the name follows the new screen.</li>
       </ul>
       <p class="foot">All conversion is local (HTML canvas). No server, no upload.</p>
@@ -587,9 +589,8 @@
       <div class="in">
         <div class="label">Free · No upload · Ready for your reader</div>
         <h2>Wallpapers,<br>hand-picked.</h2>
-        <p>Each original <span class="k">PXC</span> master stays byte-for-byte intact and is re-targeted
-          in your browser for <span class="k">X3</span>, <span class="k">X4</span>, or
-          <span class="k">BMP</span>. Nothing leaves your machine.</p>
+        <p>Each wallpaper is fitted in your browser as a <span class="k">BMP</span> for the
+          <span class="k">X3</span> or <span class="k">X4</span>. Nothing leaves your machine.</p>
       </div>
     </div>
     <div class="gbulk">
@@ -834,7 +835,7 @@ const STYLE_LABEL = { threshold:"Threshold", solid:"Solid", classic:"Classic", c
 // card's picker showing a blank.
 function knownStyle(s){ return STYLES.includes(s) ? s : STYLES[0]; }
 // ---------- state ----------
-const S = { w:528, h:792, fmt:"pxc", fit:"stretch", mode:"auto", contrast:1, invert:0, ditherStyle:"solid", files:[] };
+const S = { w:528, h:792, fmt:"bmp", fit:"stretch", mode:"auto", contrast:1, invert:0, ditherStyle:"solid", files:[] };
 
 // ---------- brutalist press feedback ----------
 // Nudges an element down-right and shrinks its hard shadow while pressed, so
@@ -1954,6 +1955,9 @@ function galleryCard(entry, cv, w, h, i){
   const title=document.createElement("div"); title.className="gtitle"; title.textContent=entry.title||base;
   card.append(frame,title);
   if(entry.credit){ const cr=document.createElement("div"); cr.className="gcredit"; cr.textContent=entry.credit; card.append(cr); }
+  // Hidden, not removed: lector 0.59.0 dropped .pxc wallpapers. Set to true to offer the
+  // PXC master and the PXC re-targets again.
+  const OFFER_PXC=false;
   // Original .pxc is served as-is (byte-for-byte the stored master).
   const main=document.createElement("a"); main.className="gdl-main";
   main.href=galleryUrl(entry.file); main.download=entry.file;
@@ -1963,7 +1967,7 @@ function galleryCard(entry, cv, w, h, i){
   const alt=document.createElement("div"); alt.className="gdl-alt";
   [["X3 PXC",528,792,"pxc"],["X4 PXC",480,800,"pxc"],
    ["X3 BMP",528,792,"bmp"],["X4 BMP",480,800,"bmp"]]
-    .filter(([,tw,th,fmt])=>!(fmt==="pxc"&&tw===w&&th===h))
+    .filter(([,tw,th,fmt])=>fmt==="pxc" ? OFFER_PXC&&!(tw===w&&th===h) : true)
     .forEach(([label,tw,th,fmt])=>{
     const btn=document.createElement("button"); btn.type="button"; btn.textContent=label;
     btn.addEventListener("click", async()=>{
@@ -1976,7 +1980,8 @@ function galleryCard(entry, cv, w, h, i){
     });
     alt.appendChild(btn);
   });
-  card.append(main,alt);
+  if(OFFER_PXC) card.append(main);
+  card.append(alt);
   // Hover: lift the card and pulse the preview like an e-ink page refresh.
   card.addEventListener("mouseenter", ()=>einkFlash(cv));
   return card;

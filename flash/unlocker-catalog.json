@@ -2,15 +2,15 @@
   "schema_version": 1,
   "releases": [
     {
-      "id": "lector-0.58.0",
+      "id": "lector-0.59.0",
       "channel": "stable",
-      "name": "lector 0.58.0",
-      "version": "0.58.0",
-      "released_at": "2026-11-16T23:26:56Z",
-      "notes": "https://github.com/diogo7dias/lector/releases/tag/lector-0.58.0",
+      "name": "lector 0.59.0",
+      "version": "0.59.0",
+      "released_at": "2026-11-23T09:00:30Z",
+      "notes": "https://github.com/diogo7dias/lector/releases/tag/lector-0.59.0",
       "firmware_url": "https://diogo7dias.github.io/lector-web/flash/firmware/latest/firmware.bin",
-      "firmware_sha256": "77b26db3b6b75a285dcbc3447f77586dbbe01281f5228fcaea8c563e133b3aaf",
-      "size": 3858208,
+      "firmware_sha256": "0ae46df5bb84e8f3f59bfaf685188bcbeceb4019e839a050b11b70cec0eefb72",
+      "size": 4244208,
       "supported_devices": [
         "x3",
         "x4"

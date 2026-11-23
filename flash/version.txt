@@ -1,1 +1,1 @@
-lector 0.58.0
+lector 0.59.0

@@ -652,27 +652,39 @@
         bootloader + app.
         <br><strong>SD card download</strong> — no USB, or a USB-locked unit. Already running Lector only.</div>
 
-      <div class="note"><strong>What lector 0.58.0 does</strong>
-        <p>Books re-index once: the layout cache format changed, and inline images decode again.</p>
+      <div class="note"><strong>What lector 0.59.0 does</strong>
+        <p>Books lay out again once on first open: the layout cache format changed.</p>
 
+        <p><strong>New</strong></p>
+        <ul>
+          <li>X4 Pro touch rethink: one tap opens a row, only actions that cannot be undone ask twice, Back returns to the screen you came from, and a swipe up from the bottom edge goes Home.</li>
+          <li>Settings in five cards with summary lines, and a strip under the Text Settings preview to step or drag a number.</li>
+          <li>Library: every book on the card by title and author, with search.</li>
+          <li>Quick Panel on the X3 and X4: a Power double click opens it.</li>
+          <li>Book Info with cover and description, and an All Bookmarks list.</li>
+          <li>Hold a word and drag to select a quote, look it up or save it to My Clippings.txt and BookOrbit.</li>
+          <li>Ruled Lines, GIF images and covers, built-in ChareInk at 12, 14 and 16 pt.</li>
+          <li>Nine sleep faces, Quick Resume on timeout, Wake on USB Plug-In and a finished-book page.</li>
+          <li>OPDS custom headers and OAuth tokens, a full time zone table, and a toolbar-style reader menu.</li>
+        </ul>
         <p><strong>Changed</strong></p>
         <ul>
-          <li>X4 Pro page turns are back on the panel's own fast waveform, instead of the 12-frame one from 0.56.0.</li>
-          <li>Time to Sleep defaults to 5 minutes on a fresh device. A saved setting is kept.</li>
-          <li>With Show Timings on, the performance log records battery, millivolts and time at each wake and sleep.</li>
+          <li>Text anti-aliasing is always off, so an X4 Pro page turn no longer waits for the grey pass. Pages with images keep it.</li>
+          <li>Fill Pages is always on, and the next chapter lays out while you read.</li>
+          <li>Defaults match CrossPoint: Time to Sleep 10 minutes, light back on wake, a 400 ms Power hold. Saved settings are kept.</li>
+          <li>Less battery use while idle on the X4 Pro, on the file server screens and in Auto Sync.</li>
+        </ul>
+        <p><strong>Removed</strong></p>
+        <ul>
+          <li>The reading journal and Stats screen, What's New, Performance Timings, and the .pxc custom wallpaper format.</li>
         </ul>
         <p><strong>Fixed</strong></p>
         <ul>
-          <li>High-quality inline JPEGs decode as libjpeg does, without smeared edges on text and line art.</li>
-          <li>A book with images no longer shows empty boxes after you leave it and open it again, and images linked as ./name show up.</li>
-          <li>The update, font download and clear cache screens, the Nearby position screens, and Settings left from the Wi-Fi list no longer keep the device awake or Wi-Fi on.</li>
-          <li>The SD card is flushed before sleep and before USB Drive, so recent changes are kept.</li>
-          <li>The OPDS password goes only to its own server. WebDAV rename, copy and upload no longer lose a book, and downloads land whole or not at all.</li>
-          <li>X4 Pro keys wake the device from the idle poll, and the light sliders nudge to 0% and 100%.</li>
-          <li>Accent marks the font lacks no longer stamp a box over the letter, bottom-up BMPs draw fully, and XTC takes its bit depth from the pages.</li>
-          <li>Crash reports name the functions at each address, and memory bugs found by new fuzz tests are fixed.</li>
+          <li>Auto Sync pushes every book read since the last sleep.</li>
+          <li>The sleep screen paints in one pass on grayscale panels, and a long press no longer also fires a tap.</li>
+          <li>Dictionary, JPEG cache and OPDS header editor fixes.</li>
         </ul>
-        <p class="note">Reports version <strong>lector 0.58.0</strong> on device. Earlier releases are on the
+        <p class="note">Reports version <strong>lector 0.59.0</strong> on device. Earlier releases are on the
           <a href="https://github.com/diogo7dias/lector/releases" target="_blank" rel="noopener">releases page</a>.</p>
       </div>
 
